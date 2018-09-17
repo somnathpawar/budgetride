@@ -1,0 +1,249 @@
+body{
+  position: relative;
+  background-image: url("slide1.jpg");
+  color: #fff;
+  opacity: 1;
+  padding: 0 10px;
+  margin: 0;
+}
+figure{
+  text-align: center;
+}
+form{
+  position: relative;
+}
+form label{
+  font-size: 14px;
+  margin-right: 10px;
+  margin: 2px 10px 0 0;
+}
+form input{
+  flex: auto;
+  border-radius: 4px;
+  border: none;
+  padding: 5px 10px;
+  outline: none;
+}
+form input:focus:required:invalid {
+  border: 2px solid red;
+}
+table{
+  width: 100%;
+  border-collapse: collapse;
+}
+table, th, td {
+   border: 2px solid #1999f8;
+}
+td{
+  padding: 5px;
+  color: #033023;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+}
+td p{
+  display: inline-block;
+  margin-top: 9px;
+}
+td button{
+  float: right;
+  width: 50%;
+  padding: 5px;
+  font-size: 12px;
+  border-radius: 4px;
+  border: none;
+  margin: 5px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+td button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+td button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+td button:hover span {
+  padding-right: 25px;
+}
+
+td button:hover span:after {
+  opacity: 1;
+  right: 12px;
+}
+
+td button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(2px);
+}
+
+th{
+  padding: 5px;
+  background: #e2ae58;
+  font-size: 14px;
+}
+.app_logo{
+  height: 100px;
+  width: 100px;
+}
+.visibility_hidden{
+  visibility:hidden;
+  margin:0;
+  height:0;
+  position: absolute;
+  left: -9999em;
+}
+.direction_inputs{
+  position: absolute;
+  top: -4%;
+  width: 100%;
+}
+.direction_inputs p{
+  display: flex;
+}
+#map_container{
+  position: relative;
+  height: 460px;
+}
+#map {
+  overflow: hidden;
+  height: 400px;
+  width: 100%;
+  position: absolute;
+}
+.app_actions{
+  position: absolute;;
+  bottom: 0;
+  width: 100%;
+}
+.app_actions button{
+  width: 60%;
+  border: 2px solid;
+  border-radius: 4px;
+  background: #e2ae58;
+  padding: 8px 10px;
+  font-size: 14px;
+  color: #fff;
+  font-weight: bold;
+  outline: none;
+}
+.app_actions button:nth-child(2){
+  width: 38%;
+}
+.app_actions button:hover{
+  background:#7d6b7c;
+}
+#search_data{
+  width: 100%;
+  height: 350px;
+  overflow-y: scroll;
+}
+.context_toggle{
+  text-align: center;
+  margin-top: 10px;
+}
+.map_trigger{
+  height: 40px;
+  width: 40px;
+}
+button:disabled {
+    background: none;
+}
+button:disabled:hover {
+    background: none;
+}
+.rupee{
+  height: 10px;
+  margin-right: 2px;
+}
+#loadingmessage, #no_rides{
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#errorsContainer{
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  color: red;
+  font-size: 16px;
+  width: 100%;
+  text-align: center;
+}
+@media only screen and (min-width: 768px){
+  section{
+    width: 95%;
+    position: fixed;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+  }
+  form label {
+    font-size: 20px;
+    margin: 10px 10px 0 0;
+  }
+  form input {
+    padding: 10px;
+    font-size: 16px;
+  }
+  td{
+    font-size: 16px;
+  }
+  td, th{
+    padding: 10px;
+  }
+  td button{
+    font-size: 14px;
+  }
+  td button:hover span:after {
+    right: 0;
+  }
+  td button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+  th{
+    font-size: 20px;
+  }
+  .app_actions button:nth-child(2){
+    width: 39%;
+  }
+  .app_logo{
+    height: 150px;
+    width: 150px;
+  }
+  #map_container{
+    top: 25px;
+    height: 485px;
+  }
+  #errorsContainer{
+    font-size: 20px;
+  }
+}
+@media only screen and (min-width: 1023px){
+  section{
+    width: 50%;
+    margin: 0 auto;
+    position: static;
+    transform: none;
+    margin-top: 7%;
+  }
+}

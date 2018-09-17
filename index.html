@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>BudgetRide</title>
+      <meta name="viewport" content="initial-scale=1.0, user-scalable=yes">
+      <meta charset="utf-8">
+      <link rel="stylesheet" href="style.css">
+   </head>
+   <body>
+      <header>
+      </header>
+      <section>
+         <figure>
+            <img src="budgetride1.png" alt="budgetride" class="app_logo"/>
+         </figure>
+         <main>
+            <form action="" method="post" id="search_form">
+               <input type="text" id="orig_latitude" name="orig_latitude" class="visibility_hidden"/>
+               <input type="text" id="orig_longitude" name="orig_longitude"  class="visibility_hidden"/>
+               <br>
+               <input type="text" id="dest_latitude" name="dest_latitude"  class="visibility_hidden"/>
+               <input type="text" id="dest_longitude" name="dest_longitude"  class="visibility_hidden"/>
+               <br>
+               <input type="text" id="current_latitude" name="current_latitude"  class="visibility_hidden"/>
+               <input type="text" id="current_longitude" name="current_longitude" class="visibility_hidden"/>
+               <br>
+               <div class="direction_inputs">
+                 <p>
+                    <label>Pick-Up</label>
+                    <input type="text" name="start_point" id="origin-input" placeholder="Enter an Origin location" required/>
+                 </p>
+                 <p>
+                    <label>Drop-To</label>
+                    <input type="text" name="drop_point" id="destination-input" placeholder="Enter a Destination location"required/>
+                 </p>
+               </div>
+               <input id="origin-input" class="controls" type="text" placeholder="Enter an origin location" style="visibility:hidden;margin:0;height:0">
+               <input id="destination-input" class="controls" type="text" placeholder="Enter a destination location" style="visibility:hidden;margin:0;height:0">
+               <article id="map_container">
+                  <div id="map"></div>
+                  <div id="search_data" class="visibility_hidden">
+                    <div id='loadingmessage' style='display:none'>
+                        <img src='triangles.gif'/>
+                    </div>
+                    <table class="data_table">
+                      <tr>
+                        <th>Company</th>
+                        <th>Cab</th>
+                        <th>Estimate</th>
+                        <th>Arriving(in mins)</th>
+                      </tr>
+                    </table>
+                    <div id='errorsContainer' style='display:none'></div>
+                  </div>
+                  <div class="context_toggle visibility_hidden">
+                    <a href="javascript:void(0)"><img src="map.png" alt="map_trigger" class="map_trigger"/></a>
+                  </div>
+               </article>
+               <p class="app_actions">
+                  <button id="search_compare">Search & Compare</button>
+                  <button type="reset" id="reset_form">Reset</button>
+               </p>
+            </form>
+         </main>
+      </section>
+      <footer>
+      </footer>
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+      <script src="script.js" type="text/javascript"></script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3vh_dIMVBhj9ZUNzVdNOwdMoMZzADQ4I&libraries=places&callback=getLocation"
+         async defer></script>
+   </body>
+</html>
