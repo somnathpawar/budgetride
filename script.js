@@ -1,16 +1,20 @@
 // var x = document.getElementById("demo");
 var markers = [];
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
+// For Demo currently we have set the center location as Empire State Building NY to get current location replace showPosition to getLocation for maps callback
+// function getLocation() {
+//     if (navigator.geolocation) {
+//         navigator.geolocation.getCurrentPosition(showPosition);
+//     } else {
+//         x.innerHTML = "Geolocation is not supported by this browser.";
+//     }
+// }
 
 function showPosition(position) {
-    document.getElementById("current_latitude").value= position.coords.latitude;
-    document.getElementById("current_longitude").value= position.coords.longitude;
+  // uncomment this after demo
+    // document.getElementById("current_latitude").value= position.coords.latitude;
+    // document.getElementById("current_longitude").value= position.coords.longitude;
+    document.getElementById("current_latitude").value= 40.7484405;
+    document.getElementById("current_longitude").value= -73.9878531;
     initMap();
 }
 
