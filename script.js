@@ -184,14 +184,23 @@ $(function() {
              {
                 let json = data.cabs,
                     tr,
-                    i = 0;
+                    i = 0,
+                    image_lyft = "<img src='lyft.png' class='service_provider'/>",
+                    image_uber = "<img src='uber.png' class='service_provider'/>",
+                    img_src;
                 for (; i < json.length; i++) {
                   tr = $('<tr/>');
-                  tr.append("<td>" + json[i].company + "</td>");
+                  if(json[i].company == "Lyft"){
+                    img_src = image_lyft;
+                  }
+                  else{
+                    img_src = image_uber;
+                  }
+                  tr.append("<td>" + img_src +json[i].company + "</td>");
                   tr.append("<td>" + json[i].cab + "</td>");
                   tr.append("<td>" + "$ " + json[i].Estimate + "</td>");
                   tr.append("<td>" + "<p>" +json[i].arriving+ "</p>" + "<button class='book_your_cab'>"+ "<span>" + " BOOK "+ "</span>" + "</button>" +"</td>");
-                  $('table').first().append(tr);
+                  $('table tbody').first().append(tr);
                 }
               } else {
                   $('#errorsContainer').html(data.message );
@@ -208,7 +217,33 @@ $(function() {
        });
        //Add click on dynamically created button and redirect the window to the specified location.
        $(document).on('click','.book_your_cab',function(){
-          window.open('https://www.uber.com/en-IN/cities/pune/','_blank');
+          window.open('https://www.uber.com/en/in/ride/','_blank');
        });
+  });
+
+  function Ascending(a,b) {
+    if (a < b) return -1;
+    if (a > b) return 1;
+    return 0;
+  }
+  $('th#sorted_field').click(function() {
+      var $th = $(this).closest('th');
+      var column = $th.index(); // Todo: url.Sort
+      var $table = $th.closest('table');
+      var rows = $table.find('tbody > tr').get();
+      rows.sort(function(rowA,rowB) {
+          if (column == 2) {
+              var keyA = $(rowA).children('td').eq(column).children('input').val().toUpperCase();
+              var keyB = $(rowB).children('td').eq(column).children('input').val().toUpperCase();
+          } else {
+              var keyA = $(rowA).children('td').eq(column).text().toUpperCase();
+              var keyB = $(rowB).children('td').eq(column).text().toUpperCase();
+          }
+          return Ascending(keyA,keyB);
+      });
+      $.each(rows, function(index,row) {
+          $table.children('tbody').append(row);
+      });
+      return false;
   });
 });

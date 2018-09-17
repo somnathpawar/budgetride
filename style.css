@@ -93,6 +93,9 @@ th{
   background: #e2ae58;
   font-size: 14px;
 }
+#sorted_field{
+  cursor: pointer;
+}
 .app_logo{
   height: 100px;
   width: 100px;
@@ -179,6 +182,11 @@ button:disabled:hover {
   width: 100%;
   text-align: center;
 }
+.service_provider{
+  vertical-align: middle;
+  height: 30px;
+  width: 30px;
+}
 @media only screen and (min-width: 768px){
   section{
     width: 95%;
@@ -201,9 +209,6 @@ button:disabled:hover {
   }
   td{
     font-size: 16px;
-  }
-  td, th{
-    padding: 10px;
   }
   td button{
     font-size: 14px;
@@ -232,6 +237,10 @@ button:disabled:hover {
   }
   #errorsContainer{
     font-size: 20px;
+  }
+  .service_provider{
+    height: 50px;
+    width: 50px;
   }
 }
 @media only screen and (min-width: 1023px){
