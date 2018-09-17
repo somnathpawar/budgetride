@@ -163,10 +163,6 @@ button:disabled {
 button:disabled:hover {
     background: none;
 }
-.rupee{
-  height: 10px;
-  margin-right: 2px;
-}
 #loadingmessage, #no_rides{
   position: absolute;
   top: 40%;
@@ -244,6 +240,5 @@ button:disabled:hover {
     margin: 0 auto;
     position: static;
     transform: none;
-    margin-top: 7%;
   }
 }

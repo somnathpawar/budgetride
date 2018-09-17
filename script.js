@@ -168,10 +168,13 @@ $(function() {
        //Ajax call to render the Cloudless API and render the dynamic html
        $.ajax({
            type: 'get',
-           url: 'https://2xu5kaknbi.execute-api.us-east-1.amazonaws.com/dev2/cabdetails?start_latitude='+a+'&start_longitude='+b+'&end_latitude='+c+'&end_longitude='+d,
+           url: 'https://q7id24uc2i.execute-api.us-east-1.amazonaws.com/dev3/cabdetails?start_latitude='+a+'&start_longitude='+b+'&end_latitude='+c+'&end_longitude='+d,
            crossDomain: true,
            contentType: "application/json",
            dataType: 'json',
+           headers: {
+             "x-api-key":"VFLXxtyNLE3zXGnAJGO9B93dElTQTsKc3cYne7XP"
+           },
            success: function (data, textStatus, xhr) {
              if (data.cabs)
              {
@@ -182,7 +185,7 @@ $(function() {
                   tr = $('<tr/>');
                   tr.append("<td>" + json[i].company + "</td>");
                   tr.append("<td>" + json[i].cab + "</td>");
-                  tr.append("<td>" + "<img src='rupee-indian.png' alt='rupee' class='rupee'>" + json[i].Estimate + "</td>");
+                  tr.append("<td>" + "$ " + json[i].Estimate + "</td>");
                   tr.append("<td>" + "<p>" +json[i].arriving+ "</p>" + "<button class='book_your_cab'>"+ "<span>" + " BOOK "+ "</span>" + "</button>" +"</td>");
                   $('table').first().append(tr);
                 }
@@ -197,12 +200,11 @@ $(function() {
                 $('#errorsContainer').show();
                 $('#errorsContainer').html(xhr.responseJSON.message);
                 $('#loadingmessage').hide();
-                //$('#map').show("slow");
-                         }
+                }
        });
        //Add click on dynamically created button and redirect the window to the specified location.
        $(document).on('click','.book_your_cab',function(){
-         window.location.href="https://www.uber.com/en-IN/cities/pune/";
+          window.open('https://www.uber.com/en-IN/cities/pune/','_blank');
        });
   });
 });
