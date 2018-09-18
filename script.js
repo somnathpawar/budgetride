@@ -216,34 +216,53 @@ $(function() {
                 }
        });
        //Add click on dynamically created button and redirect the window to the specified location.
+       let lyft_url = "https://www.lyft.com/rider",
+           uber_url = "https://www.uber.com/en/in/ride/";
        $(document).on('click','.book_your_cab',function(){
-          window.open('https://www.uber.com/en/in/ride/','_blank');
+         if($(this).parent().siblings(":first").text() == 'Lyft'){
+           window.open(lyft_url,'_blank');
+         }
+         else{
+           window.open(uber_url,'_blank');
+         }
        });
   });
 
-  function Ascending(a,b) {
-    if (a < b) return -1;
-    if (a > b) return 1;
-    return 0;
-  }
-  $('th#sorted_field').click(function() {
-      var $th = $(this).closest('th');
-      var column = $th.index(); // Todo: url.Sort
-      var $table = $th.closest('table');
-      var rows = $table.find('tbody > tr').get();
-      rows.sort(function(rowA,rowB) {
-          if (column == 2) {
-              var keyA = $(rowA).children('td').eq(column).children('input').val().toUpperCase();
-              var keyB = $(rowB).children('td').eq(column).children('input').val().toUpperCase();
-          } else {
-              var keyA = $(rowA).children('td').eq(column).text().toUpperCase();
-              var keyB = $(rowB).children('td').eq(column).text().toUpperCase();
-          }
-          return Ascending(keyA,keyB);
-      });
-      $.each(rows, function(index,row) {
-          $table.children('tbody').append(row);
-      });
-      return false;
-  });
+//Sort table on header click in ascending and descending order.
+  function sortTable(f,n){
+	var rows = $('.data_table tbody tr:gt(0)').get();
+
+	rows.sort(function(a, b) {
+
+		var A = getVal(a);
+		var B = getVal(b);
+
+		if(A < B) {
+			return -1*f;
+		}
+		if(A > B) {
+			return 1*f;
+		}
+		return 0;
+	});
+
+	function getVal(elm){
+		var v = $(elm).children('td').eq(n).text().toUpperCase();
+		if($.isNumeric(v)){
+			v = parseInt(v,10);
+		}
+		return v;
+	}
+
+	$.each(rows, function(index, row) {
+		$('.data_table').children('tbody').append(row);
+	});
+}
+var f_sl = 1;
+var f_nm = 1;
+$("th#sorted_field").click(function(){
+    f_sl *= -1;
+    var n = $(this).prevAll().length;
+    sortTable(f_sl,n);
+});
 });
