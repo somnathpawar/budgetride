@@ -1,0 +1,35 @@
+﻿<Properties StartupConfiguration="{DDF91401-4B86-4D1D-96B9-B06EC12F3EA9}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="budgetride/Test/BTTest002.cs">
+    <Files>
+      <File FileName="budgetride/Pages/BaseApplicationPage.cs" Line="18" Column="11" />
+      <File FileName="budgetride/Pages/HomePage.cs" Line="33" Column="1" />
+      <File FileName="budgetride/Test/TestBase.cs" Line="19" Column="27" />
+      <File FileName="budgetride/AutomationResource/WebDriverFactory.cs" Line="11" Column="40" />
+      <File FileName="budgetride/AutomationResource/BrowserType.cs" Line="6" Column="16" />
+      <File FileName="budgetride/Test/BTTest001.cs" Line="24" Column="1" />
+      <File FileName="budgetride/Test/BTTest002.cs" Line="37" Column="4" />
+    </Files>
+    <Pads>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="budgetride" expanded="True">
+            <Node name="budgetride" expanded="True">
+              <Node name="budgetride" expanded="True">
+                <Node name="Test" expanded="True">
+                  <Node name="BTTest002" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.budgetride PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
+</Properties>
