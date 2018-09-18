@@ -181,6 +181,14 @@ $(function() {
     $("#origin-input, #destination-input").keyup(function() {
         $('#search_compare').prop('disabled', this.value == "" ? true : false);
     });
+
+    //Disable enter on input of from and too.
+    $('#origin-input, #destination-input').keypress(function(event){
+      if(event.keyCode == 13){
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    });
     $("#search_compare").on("click", function() {
         $('#map').hide("slow");
         $("#search_data, .context_toggle").removeClass("visibility_hidden");
@@ -192,6 +200,7 @@ $(function() {
 
         $('#loadingmessage').show();
         $("table").find("tr:gt(0)").remove(); // Refresh the contents of table after each search and compare.
+        $('#errorsContainer').empty();
         //Ajax call to render the Cloudless API and render the dynamic html
         $.ajax({
             type: 'get',
