@@ -172,12 +172,12 @@ $(function() {
        //Ajax call to render the Cloudless API and render the dynamic html
        $.ajax({
            type: 'get',
-           url: 'https://1ei6bnqkm5.execute-api.us-east-1.amazonaws.com/dev4/cabBooking?start_latitude='+a+'&start_longitude='+b+'&end_latitude='+c+'&end_longitude='+d,
+           url: 'https://335ki8ebx1.execute-api.us-east-1.amazonaws.com/dev/cabBooking?start_latitude='+a+'&start_longitude='+b+'&end_latitude='+c+'&end_longitude='+d,
            crossDomain: true,
            contentType: "application/json",
            dataType: 'json',
            headers: {
-             "x-api-key":"DEKU4CGInq4VaEu29wmqp8wuwUcFXUVhaNqGIQ1b"
+             "x-api-key":"ky7WFOKpGiktFMWT73L2MrDfBJBnRx4LwqSnBo90"
            },
            success: function (data, textStatus, xhr) {
              if (data.cabs)
