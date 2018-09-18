@@ -1,0 +1,55 @@
+# Welcome to Serverless!
+#
+# This file is the main config file for your service.
+# It's very minimal at this point and uses default values.
+# You can always add more config options for more control.
+# We've included some commented out config examples here.
+# Just uncomment any of them to get that config option.
+#
+# For full config options, check the docs:
+#    docs.serverless.com
+#
+# Happy Coding!
+
+service: budgetride # NOTE: update this with your service name
+
+# You can pin your service to only deploy with a specific Serverless version
+# Check out our docs for more details
+# frameworkVersion: "=X.X.X"
+frameworkVersion: ">=1.28.0 <2.0.0"
+
+provider:
+  name: aws
+  runtime: go1.x
+  apiKeys:
+    - cabBookingAPIKey
+# you can overwrite defaults here
+  stage: dev
+
+package:
+ exclude:
+   - ./**
+ include:
+   - ./bin/**
+
+functions:
+  cabBooking:
+    handler: bin/cabBooking
+    environment:
+      UBER_AUTH_TOKEN: '{YOUR_UBER_TOKEN}'
+      LYFT_AUTH_TOKEN: '{YOUR_LYFT_CLIENT_TOKEN}'
+    events:
+      - http:
+          path: cabBooking
+          method: get
+          private: true
+          cors:
+            origin: '*'
+            maxAge: 86400
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
